@@ -36,10 +36,11 @@ $(document).ready(function() {
 //end script for the arrow down
 
 //scroll down effect
-$("a[href='#intro']").click(function() {
-
-  $("html, body").animate({ scrollTop: 520 }, "slow");
-  return false;
+$(document).ready(function() {
+  $("a[href='#intro']").click(function() {
+    $("html, body").animate({ scrollTop: 520 }, "slow");
+    return false;
+  });
 });
 //end scroll down effect
 
@@ -82,35 +83,44 @@ $(window).bind('scroll', function(){
 //end show/hide scroll to top button
 
 //scroll to top effect
-$("a[href='#top']").click(function() {
-  event.preventDefault();
-  $("html, body").animate({ scrollTop: 0 }, "slow");
-  return false;
+$(document).ready(function() {
+  $("a[href='#top']").click(function() {
+    event.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+  });
 });
 //end scroll to top effect
-$(document).ready(function() {
-    $('#scroll_to_top').tooltip({animation: true}); 
-});
 
 //tooltip activation
 $(document).ready(function() {
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+    $('#scroll_to_top').tooltip({animation: true}); 
 });
 //end tooltip activation
 
+// Modal hide on window click
+var modal = document.getElementById('id01');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+//end modal hide on click
+
 //google map
 function myMap() {
-var mapProp = {
-    center: new google.maps.LatLng(45.129642, 25.728338),
-    zoom:12
-};
-var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(45.129642, 25.728338),
-    icon: "../img/house.png",
-    animation:google.maps.Animation.BOUNCE
+  var mapProp = {
+      center: new google.maps.LatLng(45.129642, 25.728338),
+      zoom:12
+  };
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(45.129642, 25.728338),
+      icon: "../img/house.png",
+      animation:google.maps.Animation.BOUNCE
   });
-var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-marker.setMap(map);
-
+  var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+  marker.setMap(map);
 }
 //end google map
