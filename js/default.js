@@ -107,7 +107,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-//end modal hide on click
+//end modal hide on clicks
 
 //google map
 function myMap() {
